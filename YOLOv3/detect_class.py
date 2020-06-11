@@ -108,6 +108,12 @@ def detect(
             bbox_colors = random.sample(colors, n_cls_preds)
             for x1, y1, x2, y2, conf, cls_conf, cls_pred in detections:
 
+                x1 = np.clip(x1, 0, img.shape[1]-1)
+                x2 = np.clip(x2, 0, img.shape[1]-1)
+
+                y1 = np.clip(y1, 0, img.shape[0]-1)
+                y2 = np.clip(y2, 0, img.shape[0]-1)
+
                 print([x1, y1, x2, y2, conf, cls_conf, cls_pred ])
 
                 print("\t+ Label: %s, Conf: %.5f" % (classes[int(cls_pred)], cls_conf.item()))
