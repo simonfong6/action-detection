@@ -30,7 +30,8 @@ def detect(
         nms_thres=0.4,
         batch_size=1,
         n_cpu=0,
-        img_size=416):
+        img_size=416,
+        text=True):
     
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
@@ -126,15 +127,17 @@ def detect(
                 bbox = patches.Rectangle((x1, y1), box_w, box_h, linewidth=2, edgecolor=color, facecolor="none")
                 # Add the bbox to the plot
                 ax.add_patch(bbox)
-                # Add label
-                plt.text(
-                    x1,
-                    y1,
-                    s=classes[int(cls_pred)],
-                    color="white",
-                    verticalalignment="top",
-                    bbox={"color": color, "pad": 0},
-                )
+
+                if text:
+                    # Add label
+                    plt.text(
+                        x1,
+                        y1,
+                        s=classes[int(cls_pred)],
+                        color="white",
+                        verticalalignment="top",
+                        bbox={"color": color, "pad": 0},
+                    )
 
         # Save generated image with detections
         plt.axis("off")
