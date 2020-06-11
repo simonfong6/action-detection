@@ -108,6 +108,8 @@ def detect(
             bbox_colors = random.sample(colors, n_cls_preds)
             for x1, y1, x2, y2, conf, cls_conf, cls_pred in detections:
 
+                print([x1, y1, x2, y2, conf, cls_conf, cls_pred ])
+
                 print("\t+ Label: %s, Conf: %.5f" % (classes[int(cls_pred)], cls_conf.item()))
 
                 box_w = x2 - x1
