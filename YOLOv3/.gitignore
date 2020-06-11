@@ -11,3 +11,5 @@ weights/*.weights
 __pycache__
 checkpoints
 darknet53.conv.74
+logs/*
+log_dir/*
