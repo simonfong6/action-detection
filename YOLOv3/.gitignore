@@ -13,3 +13,4 @@ checkpoints
 darknet53.conv.74
 logs/*
 log_dir/*
+data/formatted-*
