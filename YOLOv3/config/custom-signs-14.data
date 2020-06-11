@@ -1,0 +1,4 @@
+classes= 14
+train=data/formatted-aiua120214-0/frameAnnotations-DataLog02142012_external_camera.avi_annotations/train.txt
+valid=data/formatted-aiua120214-0/frameAnnotations-DataLog02142012_external_camera.avi_annotations/valid.txt
+names=data/formatted-aiua120214-0/frameAnnotations-DataLog02142012_external_camera.avi_annotations/classes.names
