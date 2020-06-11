@@ -146,8 +146,10 @@ if __name__ == "__main__":
             print(log_str)
 
             model.seen += imgs.size(0)
-
-        if epoch % opt.evaluation_interval == 0:
+        # Fix: https://github.com/eriklindernoren/PyTorch-YOLOv3/issues/439
+        # https://github.com/eriklindernoren/PyTorch-YOLOv3/issues/159#issuecomment-515728971
+        # Changed from 0 to 1.
+        if epoch % opt.evaluation_interval == 1:
             print("\n---- Evaluating Model ----")
             # Evaluate the model on the validation set
             precision, recall, AP, f1, ap_class = evaluate(
