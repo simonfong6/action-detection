@@ -63,7 +63,7 @@ def detect(
     imgs = []  # Stores image paths
     img_detections = []  # Stores detections for each image index
 
-    total_inference_time = 0
+    total_inference_time = datetime.timedelta(0)
 
     print("\nPerforming object detection:")
     prev_time = time.time()
