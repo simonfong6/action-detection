@@ -63,6 +63,8 @@ def detect(
     imgs = []  # Stores image paths
     img_detections = []  # Stores detections for each image index
 
+    total_inference_time = 0
+
     print("\nPerforming object detection:")
     prev_time = time.time()
     for batch_i, (img_paths, input_imgs) in enumerate(dataloader):
@@ -77,12 +79,15 @@ def detect(
         # Log progress
         current_time = time.time()
         inference_time = datetime.timedelta(seconds=current_time - prev_time)
+        total_inference_time += inference_time
         prev_time = current_time
         print("\t+ Batch %d, Inference Time: %s" % (batch_i, inference_time))
 
         # Save image and detections
         imgs.extend(img_paths)
         img_detections.extend(detections)
+
+    print(f"Average Inference Time: {total_inference_time / batch_i}")
 
     # Bounding-box colors
     cmap = plt.get_cmap("tab20b")
