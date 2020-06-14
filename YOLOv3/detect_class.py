@@ -86,8 +86,8 @@ def detect(
         # Save image and detections
         imgs.extend(img_paths)
         img_detections.extend(detections)
-
-    print(f"Average Inference Time: {total_inference_time / batch_i}")
+    if input_imgs is not None:
+        print(f"Average Inference Time: {total_inference_time / batch_i}")
 
     # Bounding-box colors
     cmap = plt.get_cmap("tab20b")
