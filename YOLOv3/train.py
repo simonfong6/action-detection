@@ -138,6 +138,9 @@ if __name__ == "__main__":
             log_str += AsciiTable(metric_table).table
             log_str += f"\nTotal loss {loss.item()}"
 
+            with open('logs/loss.logs', 'a') as f:
+                f.write(f'{loss.item()}' + '\n')
+
             # Determine approximate time left for epoch
             epoch_batches_left = len(dataloader) - (batch_i + 1)
             time_left = datetime.timedelta(seconds=epoch_batches_left * (time.time() - start_time) / (batch_i + 1))
