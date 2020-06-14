@@ -65,6 +65,8 @@ def detect(
 
     total_inference_time = datetime.timedelta(0)
 
+    batch_i = None
+
     print("\nPerforming object detection:")
     prev_time = time.time()
     for batch_i, (img_paths, input_imgs) in enumerate(dataloader):
@@ -86,7 +88,7 @@ def detect(
         # Save image and detections
         imgs.extend(img_paths)
         img_detections.extend(detections)
-    if input_imgs is not None:
+    if batch_i is not None:
         print(f"Average Inference Time: {total_inference_time / batch_i}")
 
     # Bounding-box colors
