@@ -4,7 +4,7 @@ torchvision
 matplotlib
 # Tensorflow 2 breaks things.
 # 1.15 could work as well, unsure.
-tensorflow==1.14
+tensorflow==2.11.1
 tensorboard==1.14.0
 terminaltables
 pillow
